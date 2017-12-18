@@ -1,12 +1,17 @@
+package GameClasses;
+
+import GameClasses.Card;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
-    private ArrayList<Card> Cards = new ArrayList<Card>();
+    private ArrayList<Card> cards = new ArrayList<Card>();
 
     public Deck() {
         for (int i=1; i<=4; i++){
             String suitName = null;
+
             switch (i){
                 case 1:
                     suitName = "Hearts";
@@ -21,16 +26,18 @@ public class Deck {
                     suitName = "Diamonds";
                     break;
             }
+
             for (int j=1; j<=13; j++){
-                Cards.add(new Card(suitName, j));
+                cards.add(new Card(suitName, j));
             }
         }
-        Collections.shuffle(Cards);
+
+        Collections.shuffle(cards);
     }
 
-    public Card DealACard (){
-        Card toDeal = Cards.get(0);
-        Cards.remove(0);
+    public Card dealACard (){
+        Card toDeal = cards.get(0);
+        cards.remove(0);
         return toDeal;
     }
 }
